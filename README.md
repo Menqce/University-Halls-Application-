@@ -6,9 +6,9 @@ A Java-based desktop application built using JavaFX for the user interface.
 
 Before running the application, ensure you have the following installed:
 
-*   **OpenJDK 25:** [Download from Microsoft](https://microsoft.com)
-*   **JavaFX SDK 25:** [Download from java.net](https://java.net)
-*   **IntelliJ IDEA:** [Download here](https://jetbrains.com)
+*   **OpenJDK 25:** [Download from Microsoft](https://learn.microsoft.com/en-us/java/openjdk/download)
+*   **JavaFX SDK 25:** [Download from java.net](https://jdk.java.net/javafx25/)
+*   **IntelliJ IDEA:** [Download here](https://www.jetbrains.com/idea/download/?section=windows)
 
 ## Getting Started
 
