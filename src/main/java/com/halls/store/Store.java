@@ -20,10 +20,10 @@ import java.util.List;
 public class Store {
 
     /** List of all people (students and employees) */
-    private ArrayList<Person> people;
+    private final ArrayList<Person> people;
 
     /** List of all halls */
-    private ArrayList<Hall> halls;
+    private final ArrayList<Hall> halls;
 
     /** Index used to step through records one at a time */
     private int currentIndex;
@@ -38,8 +38,6 @@ public class Store {
         setUpHalls();
     }
 
-    // ── Hall setup ────────────────────────────────────────────────────────
-
     /**
      * Creates the five default halls with different dietary specialities.
      * Called once when the Store is first created.
@@ -51,8 +49,6 @@ public class Store {
         halls.add(new Hall("Willow Hall", 60, 12, "Halal"));
         halls.add(new Hall("Oak Hall",    50, 10, "None"));
     }
-
-    // ── Adding people ─────────────────────────────────────────────────────
 
     /**
      * Adds a person to the store.
@@ -68,14 +64,11 @@ public class Store {
         }
     }
 
-    // ── Hall assignment ───────────────────────────────────────────────────
-
     /**
      * Assigns a student to the most suitable hall based on:
      * 1. Matching dietary requirement
      * 2. Ground floor availability if needed
      * 3. Whether the hall has space
-     *
      * If no perfect match is found, assigns to any hall with space.
      *
      * @param student the student to assign
@@ -107,8 +100,6 @@ public class Store {
         }
     }
 
-    // ── Browsing records ──────────────────────────────────────────────────
-
     /**
      * Returns the next person in the list.
      * Wraps back to the first record after the last one.
@@ -129,8 +120,6 @@ public class Store {
     /** @return current browse position (1-based for display) */
     public int getCurrentIndex() { return currentIndex; }
 
-    // ── Search ────────────────────────────────────────────────────────────
-
     /**
      * Searches for people whose name contains the search term.
      * Case-insensitive.
@@ -148,8 +137,6 @@ public class Store {
         return results;
     }
 
-    // ── Getters ───────────────────────────────────────────────────────────
-
     /** @return all people in the store */
     public ArrayList<Person> getPeople()  { return people; }
 
@@ -158,8 +145,6 @@ public class Store {
 
     /** @return total number of records */
     public int getCount()                 { return people.size(); }
-
-    // ── Save to file ──────────────────────────────────────────────────────
 
     /**
      * Saves all people to a plain text file.
@@ -176,8 +161,6 @@ public class Store {
         }
         writer.close();
     }
-
-    // ── Load from file ────────────────────────────────────────────────────
 
     /**
      * Loads people from a text file into the store.
@@ -203,7 +186,6 @@ public class Store {
             if (parts[0].equals("STUDENT")) {
                 Student s = parseStudent(parts);
                 if (s != null) people.add(s);
-
             } else if (parts[0].equals("EMPLOYEE")) {
                 Employee e = parseEmployee(parts);
                 if (e != null) people.add(e);
@@ -211,8 +193,6 @@ public class Store {
         }
         reader.close();
     }
-
-    // ── Parsers ───────────────────────────────────────────────────────────
 
     /**
      * Parses a String array of fields into a Student object.
