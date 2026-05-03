@@ -221,7 +221,7 @@ public class StudentForm extends ScrollPane {
             store.addPerson(student);
 
             lblStatus.getStyleClass().add("ok");
-            lblStatus.setText("Student saved! Hall: "
+            lblStatus.setText("Student saved! ID: " + id + " Hall: "
                     + student.getAssignedHall()
                     + ", Room: " + student.getRoomNumber());
 
